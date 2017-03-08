@@ -1,0 +1,20 @@
+pkgname=Yourfukurou
+pkgver=0.0.0
+pkgrel=1
+arch=('i686' 'x86_64')
+
+source=("${pkgname}::git+https://github.com/rhysd/YourFukurou.git")
+sha256sums=('SKIP')
+
+
+build() {
+  cd "${srcdir}/${pkgname}"
+  npm run dep
+  npm run build
+}
+
+package() {
+  1
+}
+
+# vim:set sw=2 sts=2 et:
