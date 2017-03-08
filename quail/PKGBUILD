@@ -1,0 +1,30 @@
+pkgname=quail-bin
+pkgver=0.4.1
+pkgrel=1
+pkgdesc="The missing desktop client for Gmail & Google Inbox"
+arch=("x86_64")
+url="https://github.com/1000ch/quail"
+repo="git://github.com/1000ch/quail.git"
+license=('MIT')
+options=(!strip)
+provides=('quail')
+makedepends=('xdg-utils' 'desktop-file-utils')
+depends=('gconf' 'gtk2' 'libxtst' 'nss' 'alsa-lib' 'libxss')
+optdepends=('gvfs' 'libnotify')
+source=('quail.desktop')
+
+source_x86_64=("quail_${pkgver//./_}_x64.zip::https://github.com/1000ch/quail/releases/download/v${pkgver}/Quail-linux-v${pkgver}.zip")
+
+sha512sums=('672d5fc9485360f3c8338a17c11046dfb59f70fa5e04e989a0eac027d78699fc001a7ff40e6f1b12b6e24b1038097fa994ac9c504e27275df0e2abfa86fe2f59')
+sha512sums_x86_64=('2213b87e50f4c0ebf1d4b918e18475b990289a41192705aab1e7395bc78b898214987f4d138240cae55bf240bdaa7647c3d791eb7d80bcf630581e0883a2291f')
+
+package() {
+  cd ${srcdir}/
+
+  mkdir -p "${pkgdir}/usr/share/quail"
+  mkdir -p "${pkgdir}/usr/bin"
+  mkdir -p "${pkgdir}/usr/share/applications"
+  cp -R ./* "${pkgdir}/usr/share/quail"
+  ln -s "/usr/share/quail/Quail" "${pkgdir}/usr/bin/quail"
+  cp $srcdir/quail.desktop $pkgdir/usr/share/applications/quail.desktop
+}
