@@ -1,0 +1,25 @@
+pkgname=Nocturn
+pkgver=0.1.4
+pkgrel=1
+arch=('x86_64')
+
+source=(
+  "https://github.com/k0kubun/Nocturn/releases/download/v${pkgver}/Nocturn-linux-x64.zip"
+)
+
+md5sums=('937018a107039e32f9aafd8028a0f28b')
+
+
+package(){
+  mkdir -p "$pkgdir/opt/nocturn"
+  cp -r Nocturn-linux-x64/* "$pkgdir/opt/nocturn/"
+
+  mkdir -p "$pkgdir/usr/bin"
+  cat << EOF > "$pkgdir/usr/bin/nocturn"
+#!/bin/sh
+cd /opt/nocturn
+./Nocturn
+EOF
+  chmod +x "$pkgdir/usr/bin/nocturn"
+}
+
