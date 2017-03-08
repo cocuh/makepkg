@@ -1,0 +1,46 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=brother-hll2365dw
+pkgver=1
+pkgrel=1
+epoch=
+pkgdesc="An Open Source vector graphics editor, with capabilities similar to Illustrator, CorelDraw, or Xara X, using the W3C standard Scalable Vector Graphics (SVG) file format."
+arch=('i686' 'x86_64')
+url="https://launchpad.net/inkscape"
+license=('GPL' 'LGPL')
+groups=()
+depends=('cups')
+checkdepends=()
+optdepends=()
+makedepends=('rpmextract')
+backup=()
+changelog=
+source=('hll2360dcupswrapper-3.2.0-1.i386.rpm')
+noextract=()
+md5sums=('SKIP')
+validpgpkeys=()
+
+prepare() {
+  echo
+}
+
+build() {
+  echo
+}
+
+package() {
+  cp -r opt ${pkgdir}/
+
+  mkdir -p ${pkgdir}/usr/lib/cups/filter
+  cp ./opt/brother/Printers/HLL2360D/cupswrapper/brother_lpdwrapper_HLL2360D ${pkgdir}/usr/lib/cups/filter/
+  mkdir -p ${pkgdir}/usr/share/cups/model
+  find .
+  cp ./opt/brother/Printers/HLL2360D/cupswrapper/brother-HLL2360D-cups-en.ppd ${pkgdir}/usr/share/cups/model/
+
+}
+
+# vim:set ts=2 sw=2 et:
