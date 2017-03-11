@@ -1,0 +1,3 @@
+[submodule "broadcom-wl"]
+	path = broadcom-wl
+	url = https://aur.archlinux.org/broadcom-wl.git
