@@ -1,0 +1,14 @@
+pkgbase = grub2-theme-otaku-arch
+	pkgdesc = Grub2 gfxmenu theme.
+	pkgver = 1.0
+	pkgrel = 4
+	url = https://github.com/cocuh/grub2-theme-otaku-arch
+	install = grub2-theme-otaku-arch.install
+	arch = any
+	license = GPLv3
+	depends = grub
+	source = git+https://github.com/cocuh/grub2-theme-otaku-arch
+	md5sums = SKIP
+
+pkgname = grub2-theme-otaku-arch
+
