@@ -1,5 +1,5 @@
 pkgname=quail-bin
-pkgver=0.4.1
+pkgver=0.11.0
 pkgrel=1
 pkgdesc="The missing desktop client for Gmail & Google Inbox"
 arch=("x86_64")
@@ -16,7 +16,8 @@ source=('quail.desktop')
 source_x86_64=("quail_${pkgver//./_}_x64.zip::https://github.com/1000ch/quail/releases/download/v${pkgver}/Quail-linux-v${pkgver}.zip")
 
 sha512sums=('672d5fc9485360f3c8338a17c11046dfb59f70fa5e04e989a0eac027d78699fc001a7ff40e6f1b12b6e24b1038097fa994ac9c504e27275df0e2abfa86fe2f59')
-sha512sums_x86_64=('2213b87e50f4c0ebf1d4b918e18475b990289a41192705aab1e7395bc78b898214987f4d138240cae55bf240bdaa7647c3d791eb7d80bcf630581e0883a2291f')
+sha512sums_x86_64=('04b0518de692f4f78a28af5122260c0dfe2475309f7a3a914b0ceeefa48344bbfe9940b873ccbcdcfae2e92f463e545658ea162d242128b73d010f4d412fc23b')
+
 
 package() {
   cd ${srcdir}/
